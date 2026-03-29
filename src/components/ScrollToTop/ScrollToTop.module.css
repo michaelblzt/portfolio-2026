@@ -1,0 +1,96 @@
+.badge {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 99;
+  width: 90px;
+  height: 90px;
+  background: var(--color-yellow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: spin 12s linear infinite;
+  transition: background 0.2s ease;
+}
+
+.badge:hover {
+  background: #E8612A;
+}
+
+/* ─── SVG text ───────────────────────────────────────────────────────────────*/
+
+.svgDefault,
+.svgHover {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.2s ease;
+}
+
+.svgHover {
+  opacity: 0;
+}
+
+.badge:hover .svgDefault {
+  opacity: 0;
+}
+
+.badge:hover .svgHover {
+  opacity: 1;
+}
+
+/* ─── Arrow ──────────────────────────────────────────────────────────────────*/
+
+.arrowDefault,
+.arrowHover {
+  font-size: 1.25rem;
+  color: #141413;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  animation: counter-spin 12s linear infinite;
+  transition: opacity 0.2s ease;
+}
+
+.arrowHover {
+  position: absolute;
+  opacity: 0;
+}
+
+.badge:hover .arrowDefault {
+  opacity: 0;
+}
+
+.badge:hover .arrowHover {
+  opacity: 1;
+}
+
+/* ─── Animations ─────────────────────────────────────────────────────────────*/
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes counter-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────*/
+
+@media (max-width: 768px) {
+  .badge {
+    width: 70px;
+    height: 70px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .svgDefault,
+  .svgHover {
+    width: 70px;
+    height: 70px;
+  }
+}

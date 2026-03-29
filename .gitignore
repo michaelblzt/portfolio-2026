@@ -24,6 +24,16 @@
 .DS_Store
 *.pem
 
+# fonts (licensed, hosted on Cloudflare R2)
+/src/fonts/
+
+# claude / agents config
+CLAUDE.md
+AGENTS.md
+
+# project management
+CHANGES.md
+
 # debug
 npm-debug.log*
 yarn-debug.log*

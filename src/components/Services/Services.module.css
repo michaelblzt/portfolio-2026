@@ -1,0 +1,64 @@
+.section {
+  padding: 6rem 2.5rem;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* ─── Container ──────────────────────────────────────────────────────────────*/
+
+.container {
+  border-radius: 1.25rem;
+  background: rgba(255, 243, 213, 0.04);
+  overflow: hidden;
+}
+
+/* ─── List ───────────────────────────────────────────────────────────────────*/
+
+.list {
+  list-style: none;
+}
+
+.item {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 6vw, 7rem);
+  line-height: 1;
+  color: var(--color-cream);
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 243, 213, 0.12) 15%,
+    rgba(255, 243, 213, 0.12) 85%,
+    transparent 100%
+  ) 1;
+  transition: background 0.2s ease;
+  cursor: default;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item:hover {
+  background: rgba(255, 243, 213, 0.06);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────*/
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 1.5rem;
+  }
+
+  .item {
+    font-size: clamp(1.5rem, 8vw, 3rem);
+    padding: 1rem 1.25rem;
+  }
+}

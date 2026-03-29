@@ -1,0 +1,53 @@
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 2.5rem 3.5rem;
+  overflow: hidden;
+}
+
+/* ─── Dot grid ───────────────────────────────────────────────────────────────*/
+
+.dotGrid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 243, 213, 0.18) 1px, transparent 1px);
+  background-size: 28px 28px;
+  /* Visible only in the centre zone */
+  mask-image: radial-gradient(ellipse 70% 35% at 55% 55%, black 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 35% at 55% 55%, black 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ─── Title ──────────────────────────────────────────────────────────────────*/
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 18vw;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-cream);
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes counter-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────*/
+
+@media (max-width: 768px) {
+  .section {
+    padding: 0 1.5rem 2.5rem;
+  }
+}

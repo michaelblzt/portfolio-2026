@@ -1,0 +1,71 @@
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 6rem 2.5rem 4rem;
+  text-align: center;
+}
+
+.greeting {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+}
+
+.tagline {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 4.5vw;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-cream);
+}
+
+.accent {
+  color: var(--color-yellow);
+}
+
+/* ─── Location band ──────────────────────────────────────────────────────────*/
+
+.locationBand {
+  width: 100%;
+  padding: 1.5rem 2.5rem;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 243, 213, 0.25) 25%,
+    rgba(255, 243, 213, 0.25) 75%,
+    transparent 100%
+  ) 1;
+}
+
+.location {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  letter-spacing: 0.05em;
+  color: var(--color-cream);
+  text-align: center;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────*/
+
+@media (max-width: 768px) {
+  .tagline {
+    font-size: 7vw;
+  }
+
+  .location {
+    font-size: 3.5vw;
+  }
+}
