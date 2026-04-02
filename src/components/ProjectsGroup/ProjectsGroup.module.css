@@ -1,0 +1,10 @@
+.group {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 809px) {
+  .group {
+    gap: var(--space-16);
+  }
+}

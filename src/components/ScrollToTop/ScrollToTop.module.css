@@ -44,9 +44,9 @@
 
 .arrowDefault,
 .arrowHover {
-  font-size: 1.25rem;
-  color: #141413;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   z-index: 1;
   animation: counter-spin 12s linear infinite;

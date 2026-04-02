@@ -1,35 +1,43 @@
 .section {
-  padding: 6rem 2.5rem;
+  padding: var(--space-24) var(--page-padding);
 }
 
 .label {
   font-family: var(--font-body);
-  font-size: 0.875rem;
+  font-size: var(--text-p);
   color: var(--color-text-secondary);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-6);
 }
 
 /* ─── Container ──────────────────────────────────────────────────────────────*/
 
 .container {
-  border-radius: 1.25rem;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 243, 213, 0.04);
   overflow: hidden;
 }
 
 /* ─── List ───────────────────────────────────────────────────────────────────*/
 
-.list {
-  list-style: none;
-}
-
 .item {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2rem, 6vw, 7rem);
+  font-size: clamp(1.5rem, 3vw, 3.5rem);
   line-height: 1;
   color: var(--color-cream);
-  padding: 1.25rem 2rem;
+  padding: var(--space-8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.2s ease;
+}
+
+.item:last-child,
+.item:last-child:hover {
+  border-bottom: none;
+}
+
+.item:hover {
+  background: rgba(255, 243, 213, 0.06);
   border-bottom: 1px solid;
   border-image: linear-gradient(
     to right,
@@ -38,27 +46,16 @@
     rgba(255, 243, 213, 0.12) 85%,
     transparent 100%
   ) 1;
-  transition: background 0.2s ease;
-  cursor: default;
-}
-
-.item:last-child {
-  border-bottom: none;
-}
-
-.item:hover {
-  background: rgba(255, 243, 213, 0.06);
 }
 
 /* ─── Responsive ─────────────────────────────────────────────────────────────*/
 
-@media (max-width: 768px) {
+@media (max-width: 809px) {
   .section {
-    padding: 4rem 1.5rem;
+    padding: var(--space-16) var(--page-padding);
   }
 
   .item {
-    font-size: clamp(1.5rem, 8vw, 3rem);
-    padding: 1rem 1.25rem;
+    padding: var(--space-4) var(--space-8);
   }
 }

@@ -4,21 +4,56 @@
   min-height: 100vh;
   display: flex;
   align-items: flex-end;
-  padding: 0 2.5rem 3.5rem;
+  padding: 0 var(--space-10) var(--space-14);
   overflow: hidden;
 }
 
-/* ─── Dot grid ───────────────────────────────────────────────────────────────*/
+/* ─── Dot grid layers ────────────────────────────────────────────────────────
+   3 layers superposés, même position (0 0) → mêmes dots.
+   Animations complémentaires : quand l'un baisse un autre monte,
+   l'œil perçoit des dots individuels qui s'allument/s'éteignent.
+*/
 
-.dotGrid {
+.dotA,
+.dotB,
+.dotC {
   position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(255, 243, 213, 0.18) 1px, transparent 1px);
-  background-size: 28px 28px;
-  /* Visible only in the centre zone */
-  mask-image: radial-gradient(ellipse 70% 35% at 55% 55%, black 0%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 35% at 55% 55%, black 0%, transparent 100%);
+  left: 0;
+  right: 0;
+  bottom: 56px;
+  height: 44%;
+  background: linear-gradient(to top, #FFCF56 6%, #FF7F56 43%, #C01207 93%);
+  mask-image:
+    radial-gradient(circle, black 1px, transparent 1px),
+    radial-gradient(ellipse 85% 75% at 50% 50%, black 0%, transparent 100%),
+    linear-gradient(to top, transparent 0%, black 25%);
+  mask-size: 28px 28px, 100% 100%, 100% 100%;
+  mask-position: 0 0, 0 0, 0 0;
+  mask-composite: intersect, intersect;
+  -webkit-mask-composite: source-in, source-in;
   pointer-events: none;
+  opacity: 0;
+}
+
+/* Layer A — fade in puis cycle lent */
+.dotA {
+  animation:
+    dotReveal 0.8s ease-out 900ms forwards,
+    twinkleA 4s ease-in-out 1.7s infinite;
+}
+
+/* Layer B — démarre en opposition de phase avec A */
+.dotB {
+  animation:
+    dotReveal 0.8s ease-out 900ms forwards,
+    twinkleB 3.2s ease-in-out 2.4s infinite;
+}
+
+/* Layer C — cycle plus long, rôle "fond" */
+.dotC {
+  animation:
+    dotReveal 0.8s ease-out 900ms forwards,
+    twinkleC 6.5s ease-in-out 1s infinite;
 }
 
 /* ─── Title ──────────────────────────────────────────────────────────────────*/
@@ -34,20 +69,75 @@
   z-index: 1;
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+.letter {
+  display: inline-block;
+  opacity: 0;
+  animation: letterReveal 0.4s ease-out forwards;
 }
 
-@keyframes counter-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(-360deg); }
+/* ─── Keyframes ──────────────────────────────────────────────────────────────*/
+
+@keyframes letterReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* dotReveal : state initial → 0, forwards garde la valeur finale de twinkle */
+@keyframes dotReveal {
+  from { opacity: 0; }
+  to   { opacity: 0; } /* twinkle prend le relai */
+}
+
+@keyframes twinkleA {
+  0%   { opacity: 0.05; }
+  25%  { opacity: 0.55; }
+  50%  { opacity: 0.1;  }
+  75%  { opacity: 0.45; }
+  100% { opacity: 0.05; }
+}
+
+@keyframes twinkleB {
+  0%   { opacity: 0.4;  }
+  30%  { opacity: 0.05; }
+  60%  { opacity: 0.5;  }
+  85%  { opacity: 0.1;  }
+  100% { opacity: 0.4;  }
+}
+
+@keyframes twinkleC {
+  0%   { opacity: 0.2;  }
+  40%  { opacity: 0.5;  }
+  70%  { opacity: 0.05; }
+  100% { opacity: 0.2;  }
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────────────────────*/
+
+@media (prefers-reduced-motion: reduce) {
+  .letter {
+    animation: none;
+    opacity: 1;
+  }
+  .dotA {
+    animation: none;
+    opacity: 0.35;
+  }
+  .dotB,
+  .dotC {
+    display: none;
+  }
 }
 
 /* ─── Responsive ─────────────────────────────────────────────────────────────*/
 
-@media (max-width: 768px) {
+@media (max-width: 809px) {
   .section {
-    padding: 0 1.5rem 2.5rem;
+    padding: 0 var(--space-6) var(--space-10);
   }
 }

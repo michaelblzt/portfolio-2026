@@ -1,12 +1,12 @@
 .section {
-  padding: 8rem 2.5rem 4rem;
+  padding: var(--space-32) var(--page-padding) var(--space-16);
 }
 
 .label {
   font-family: var(--font-body);
-  font-size: 0.875rem;
+  font-size: var(--text-p);
   color: var(--color-text-secondary);
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-8);
 }
 
 .accent {
@@ -14,23 +14,14 @@
 }
 
 .title {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 6vw;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  color: var(--color-cream);
-  text-align: left;
+  composes: displayText from global;
+  font-size: 100px; /* valeur initiale, overridée par useTextFit */
 }
 
 /* ─── Responsive ─────────────────────────────────────────────────────────────*/
 
-@media (max-width: 768px) {
+@media (max-width: 809px) {
   .section {
-    padding: 5rem 1.5rem 3rem;
-  }
-
-  .title {
-    font-size: 9vw;
+    padding: var(--space-20) var(--page-padding) var(--space-12);
   }
 }

@@ -1,32 +1,53 @@
 .section {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: var(--space-20); /* 80px entre inner et locationBand */
 }
 
 .inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  padding: 6rem 2.5rem 4rem;
+  gap: var(--space-6); /* 24px entre greeting et tagline */
+  padding: var(--space-24) var(--page-padding) 0;
   text-align: center;
 }
 
 .greeting {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: var(--text-h6);
   color: var(--color-text-secondary);
 }
 
+.wave {
+  display: inline-block;
+  transform-origin: 70% 80%; /* base du poignet */
+  animation: wave 2.4s ease-in-out 0.8s infinite;
+}
+
+@keyframes wave {
+  0%        { transform: rotate(0deg); }
+  10%       { transform: rotate(14deg); }
+  20%       { transform: rotate(-8deg); }
+  30%       { transform: rotate(14deg); }
+  40%       { transform: rotate(-4deg); }
+  50%       { transform: rotate(10deg); }
+  60%, 100% { transform: rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave {
+    animation: none;
+  }
+}
+
 .tagline {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 4.5vw;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: var(--color-cream);
+  composes: displayText from global;
+  font-size: 100px; /* valeur initiale, overridée par useTextFit */
+}
+
+.tagline [data-line] {
+  text-align: center;
 }
 
 .accent {
@@ -37,7 +58,9 @@
 
 .locationBand {
   width: 100%;
-  padding: 1.5rem 2.5rem;
+  overflow: hidden;
+  padding: var(--space-6) 0;
+  transform: rotate(-0.33deg);
   border-top: 1px solid;
   border-bottom: 1px solid;
   border-image: linear-gradient(
@@ -49,22 +72,48 @@
   ) 1;
 }
 
-.location {
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marquee 90s linear infinite;
+}
+
+.marqueeItem {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1rem, 2.5vw, 2rem);
-  letter-spacing: 0.05em;
+  font-size: var(--text-h2);
+  letter-spacing: 0.03em;
   color: var(--color-cream);
-  text-align: center;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.marqueeSep {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  color: var(--color-cream);
+  padding: 0 var(--space-12);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (max-width: 809px) {
+  .locationBand {
+    padding: var(--space-2) 0;
+  }
+
+  .marqueeItem,
+  .marqueeSep {
+    font-size: 1.25rem;
+  }
 }
 
 /* ─── Responsive ─────────────────────────────────────────────────────────────*/
 
 @media (max-width: 768px) {
-  .tagline {
-    font-size: 7vw;
-  }
-
   .location {
     font-size: 3.5vw;
   }
