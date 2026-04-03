@@ -27,7 +27,7 @@
     radial-gradient(circle, black 1px, transparent 1px),
     radial-gradient(ellipse 85% 75% at 50% 50%, black 0%, transparent 100%),
     linear-gradient(to top, transparent 0%, black 25%);
-  mask-size: 28px 28px, 100% 100%, 100% 100%;
+  mask-size: clamp(14px, 2vw, 28px) clamp(14px, 2vw, 28px), 100% 100%, 100% 100%;
   mask-position: 0 0, 0 0, 0 0;
   mask-composite: intersect, intersect;
   -webkit-mask-composite: source-in, source-in;

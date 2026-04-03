@@ -24,7 +24,6 @@ export default function Interlude() {
         icon={<ExternalLink size={16} />}
         href="https://www.laguild.io"
         target="_blank"
-        variant="primary"
         size="big"
       />
     </section>

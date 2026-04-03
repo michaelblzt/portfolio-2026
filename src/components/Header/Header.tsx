@@ -87,7 +87,7 @@ export default function Header() {
           } : undefined}
         >
           <div className={styles.left}>
-            <a href="#" className={styles.logo} aria-label="Michael Blaizot">
+            <a href="/" className={styles.logo} aria-label="Michael Blaizot — Back to top">
               <LogoSVG />
             </a>
             <span className={`${styles.status} ${menuOpen ? styles.statusHidden : ''}`}>
@@ -107,7 +107,6 @@ export default function Header() {
               label="Resume"
               href="https://michael-blaizot.notion.site/Portfolio-Micha-l-Blaizot-95e549248eb64ea28aa7798c15491415?source=copy_link"
               target="_blank"
-              variant="primary"
               size="small"
               icon={<ExternalLink size={14} />}
             />

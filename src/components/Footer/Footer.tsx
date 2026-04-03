@@ -21,7 +21,7 @@ const DribbbleIcon = () => (
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} data-reveal>
       <div className={styles.inner}>
         <div className={styles.socials}>
           <a href="https://x.com/michaelblzt" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className={styles.socialLink}>
@@ -34,7 +34,7 @@ export default function Footer() {
             <DribbbleIcon />
           </a>
         </div>
-        <p className={styles.copy}>Michael Blaizot — © Portfolio Personnel {year}</p>
+        <p className={styles.copy}>Michael Blaizot — © Portfolio Personnel <span className={styles.year}>{year}</span></p>
       </div>
     </footer>
   );

@@ -3,7 +3,7 @@ import Button from '../Button/Button';
 
 export default function Contact() {
   return (
-    <section id="contact" className={styles.section}>
+    <section id="contact" className={styles.section} data-reveal>
 
       {/* ── Blob avatar — tout dans un seul SVG, même espace de coordonnées ── */}
       <svg
@@ -17,7 +17,7 @@ export default function Contact() {
       >
         <defs>
           <clipPath id="blob-clip">
-            <path fillRule="evenodd" clipRule="evenodd" d="M43.0325 70C62.8968 70 79 54.33 79 35C79 15.67 62.8968 0 43.0325 0C23.1682 0 0 20.8076 0 40.1376C0 59.4676 23.1682 70 43.0325 70Z" />
+            <path className={styles.blobClip} fillRule="evenodd" clipRule="evenodd" d="M43.0325 70C62.8968 70 79 54.33 79 35C79 15.67 62.8968 0 43.0325 0C23.1682 0 0 20.8076 0 40.1376C0 59.4676 23.1682 70 43.0325 70Z" />
           </clipPath>
         </defs>
 
@@ -37,17 +37,17 @@ export default function Contact() {
       </svg>
 
       {/* ── Texte ── */}
-      <h2 className={styles.title}>LET&apos;S WORK TOGETHER!</h2>
-
-      <a href="mailto:michael.blzt@gmail.com" className={styles.email}>
-        michael.blzt@gmail.com
-      </a>
+      <div className={styles.textGroup}>
+        <h2 className={styles.title}>LET&apos;S WORK TOGETHER!</h2>
+        <a href="mailto:michael.blzt@gmail.com" className={styles.email}>
+          michael.blzt@gmail.com
+        </a>
+      </div>
 
       <Button
         label="Book a discovery call"
         href="https://app.lemcal.com/@michaelblaizot"
         target="_blank"
-        variant="primary"
         size="big"
       />
 

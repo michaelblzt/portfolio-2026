@@ -1,6 +1,5 @@
 .footer {
   padding: var(--space-8) var(--page-padding);
-  border-top: 1px solid rgba(255, 243, 213, 0.08);
 }
 
 .inner {
@@ -34,4 +33,8 @@
   font-family: var(--font-body);
   font-size: var(--text-small);
   color: var(--color-text-secondary);
+}
+
+.year {
+  color: var(--color-orange);
 }

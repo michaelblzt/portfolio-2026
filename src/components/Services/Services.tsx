@@ -13,7 +13,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className={styles.section}>
+    <section id="services" className={styles.section} data-reveal>
       <p className={styles.label}>Services ↓</p>
       <div className={styles.container}>
         <ul className={styles.list}>

@@ -18,6 +18,7 @@ interface ProjectCardProps {
   imageAlt?: string;
   accentColor: string;
   useCaseImages: (string | { src: string; bg?: string })[];
+  priority?: boolean;
 }
 
 export default function ProjectCard({
@@ -33,6 +34,7 @@ export default function ProjectCard({
   imageAlt,
   accentColor,
   useCaseImages,
+  priority = false,
 }: ProjectCardProps) {
   const coverTitleRef = useRef<HTMLHeadingElement>(null);
   const coverRef = useRef<HTMLDivElement>(null);
@@ -144,6 +146,7 @@ export default function ProjectCard({
             src={image}
             alt={imageAlt ?? title}
             fill
+            priority={priority}
             className={styles.coverImage}
             sizes="100vw"
           />
@@ -207,6 +210,7 @@ export default function ProjectCard({
                   src={src}
                   alt={`${title} — use case ${i + 1}`}
                   fill
+                  priority={priority && i < 2}
                   className={styles.useCaseImage}
                   sizes="(min-width: 1200px) 33vw, 50vw"
                 />

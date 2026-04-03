@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-8);
+  gap: var(--space-6);
   text-align: center;
 }
 
@@ -12,11 +12,11 @@
 .blob {
   width: 200px;
   height: auto;
-  margin-bottom: var(--space-4);
 }
 
 .blobFill,
-.blobStroke {
+.blobStroke,
+.blobClip {
   animation: blobMorph 6s ease-in-out infinite;
 }
 
@@ -37,6 +37,15 @@
   .blobStroke {
     animation: none;
   }
+}
+
+/* ─── Text group (titre + email serrés) ─────────────────────────────────────*/
+
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
 }
 
 /* ─── Title ──────────────────────────────────────────────────────────────────*/

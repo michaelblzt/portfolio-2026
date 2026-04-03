@@ -51,7 +51,18 @@
 }
 
 .accent {
+  color: var(--color-cream);
+  transition: color 0.6s ease;
+}
+
+.taglineActive .accent {
   color: var(--color-yellow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accent {
+    transition: none;
+  }
 }
 
 /* ─── Location band ──────────────────────────────────────────────────────────*/
@@ -100,6 +111,17 @@
   to   { transform: translateX(-50%); }
 }
 
+@media (max-width: 1439px) {
+  .inner {
+    padding-top: var(--space-16); /* 64px au lieu de 96px */
+  }
+
+  .marqueeItem,
+  .marqueeSep {
+    font-size: var(--text-h4); /* 31px — mid zone */
+  }
+}
+
 @media (max-width: 809px) {
   .locationBand {
     padding: var(--space-2) 0;
@@ -107,7 +129,7 @@
 
   .marqueeItem,
   .marqueeSep {
-    font-size: 1.25rem;
+    font-size: 1.25rem; /* 20px — mobile */
   }
 }
 

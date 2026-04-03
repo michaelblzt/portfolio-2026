@@ -116,7 +116,7 @@ export default function Home() {
         <Services />
         <ProjectsIntro />
         <ProjectsGroup>
-          <ProjectCard {...projects[0]} />
+          <ProjectCard {...projects[0]} priority />
           <ProjectCard {...projects[1]} />
         </ProjectsGroup>
         <Interlude />

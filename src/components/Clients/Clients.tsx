@@ -35,7 +35,7 @@ function SunIcon() {
 
 export default function Clients() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} data-reveal>
       <div className={styles.inner}>
         <SunIcon />
         <h2 className={styles.title}>Join this list of happy clients</h2>
