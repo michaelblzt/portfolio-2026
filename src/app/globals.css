@@ -205,6 +205,18 @@ main {
   white-space: nowrap;
 }
 
+@media (max-width: 809px) {
+  .displayText {
+    font-size: var(--text-h3);
+    line-height: 1.25;
+    white-space: normal;
+  }
+
+  .displayText [data-line] {
+    white-space: normal;
+  }
+}
+
 /* ─── Reveal animation ───────────────────────────────────────────────────────
    Géré par RevealObserver (layout.tsx) via IntersectionObserver.
    La classe .revealed est ajoutée quand l'élément entre dans le viewport.

@@ -43,7 +43,6 @@
 
 .tagline {
   composes: displayText from global;
-  font-size: 100px; /* valeur initiale, overridée par useTextFit */
 }
 
 .tagline [data-line] {

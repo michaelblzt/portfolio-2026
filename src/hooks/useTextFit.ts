@@ -23,6 +23,12 @@ export function useTextFit<
     if (lines.length === 0) return;
 
     const fit = () => {
+      // Below 810px, CSS handles sizing — skip JS fitting
+      if (window.innerWidth < 810) {
+        text.style.fontSize = '';
+        return;
+      }
+
       const style = getComputedStyle(container);
       const paddingLeft = parseFloat(style.paddingLeft) || 0;
       const paddingRight = parseFloat(style.paddingRight) || 0;

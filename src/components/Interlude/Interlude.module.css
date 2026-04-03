@@ -18,7 +18,6 @@
 
 .title {
   composes: displayText from global;
-  font-size: 100px; /* valeur initiale, overridée par useTextFit */
   text-transform: uppercase;
 }
 
@@ -29,4 +28,5 @@
     padding: var(--space-20) var(--page-padding) var(--space-12);
     gap: var(--space-6);
   }
+
 }

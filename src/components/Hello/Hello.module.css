@@ -138,6 +138,7 @@
 
 @media (max-width: 809px) {
   .section {
+    min-height: 50vh;
     padding: 0 var(--space-6) var(--space-10);
   }
 }
