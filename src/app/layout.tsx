@@ -38,16 +38,16 @@ export default function RootLayout({
         <link rel="preconnect" href={FONT_CDN} />
         <link
           rel="preload"
-          href={`${FONT_CDN}/fonts/PPMonumentExtended/PPMonumentExtended-Regular.otf`}
+          href={`${FONT_CDN}/fonts/PPMonumentExtended/PPMonumentExtended-Regular.woff2`}
           as="font"
-          type="font/opentype"
+          type="font/woff2"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href={`${FONT_CDN}/fonts/TTNormsPro/TypeType%20-%20TT%20Norms%20Pro%20Regular.otf`}
+          href={`${FONT_CDN}/fonts/TTNormsPro/TTNormsPro-Regular.woff2`}
           as="font"
-          type="font/opentype"
+          type="font/woff2"
           crossOrigin="anonymous"
         />
       </head>
