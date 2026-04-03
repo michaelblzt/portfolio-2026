@@ -207,12 +207,13 @@ main {
 
 @media (max-width: 809px) {
   .displayText {
-    font-size: var(--text-h3);
+    font-size: var(--text-h4);
     line-height: 1.25;
     white-space: normal;
   }
 
   .displayText [data-line] {
+    display: inline;
     white-space: normal;
   }
 }
