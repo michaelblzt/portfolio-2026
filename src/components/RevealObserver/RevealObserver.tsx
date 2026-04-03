@@ -18,7 +18,15 @@ export default function RevealObserver() {
       { threshold: 0.08 }
     );
 
-    elements.forEach((el) => observer.observe(el));
+    // Reveal elements already in viewport on load (e.g. when URL has an anchor)
+    elements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('revealed');
+      } else {
+        observer.observe(el);
+      }
+    });
     return () => observer.disconnect();
   }, []);
 

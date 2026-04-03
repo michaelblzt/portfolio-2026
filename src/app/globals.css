@@ -216,6 +216,10 @@ main {
     display: inline;
     white-space: normal;
   }
+
+  .displayText [data-line]::after {
+    content: ' ';
+  }
 }
 
 /* ─── Reveal animation ───────────────────────────────────────────────────────
