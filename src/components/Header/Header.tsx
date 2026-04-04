@@ -92,7 +92,7 @@ export default function Header() {
             </a>
             <span className={`${styles.status} ${menuOpen ? styles.statusHidden : ''}`}>
               <span className={`${styles.dot} ${IS_AVAILABLE ? styles.dotAvailable : ''}`} aria-hidden="true" />
-              {IS_AVAILABLE ? 'Available for work' : 'Not available'}
+              {IS_AVAILABLE ? 'Available' : 'Not available'}
             </span>
           </div>
 
