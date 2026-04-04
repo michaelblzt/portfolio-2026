@@ -1,14 +1,13 @@
 import styles from './Services.module.css';
 
 const services = [
-  'UI DESIGN',
-  'MOBILE DESIGN',
-  'PRODUCT DISCOVERY',
-  'UX INVESTIGATIONS',
-  'PROTOTYPING',
-  'DESIGN SYSTEM',
-  'DESIGN OPS',
-  'DATA VIZ',
+  'UI Design',
+  'Design Systems',
+  'Interaction Design',
+  'Product Discovery',
+  'Design Engineering',
+  'Prototyping',
+  'Design System',
 ];
 
 export default function Services() {
