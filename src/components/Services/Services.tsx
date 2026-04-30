@@ -1,14 +1,5 @@
 import styles from './Services.module.css';
-
-const services = [
-  'UI Design',
-  'Design Systems',
-  'Interaction Design',
-  'Product Discovery',
-  'Design Engineering',
-  'Prototyping',
-  'Design System',
-];
+import { services } from '@/lib/data';
 
 export default function Services() {
   return (
@@ -17,7 +8,9 @@ export default function Services() {
       <div className={styles.container}>
         <ul className={styles.list}>
           {services.map((s) => (
-            <li key={s} className={styles.item}>{s}</li>
+            <li key={s} className={styles.item}>
+              {s}
+            </li>
           ))}
         </ul>
       </div>

@@ -71,7 +71,9 @@ export default function ProjectCard({
       cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(update);
     };
-    const onResize = () => { vh = window.innerHeight; };
+    const onResize = () => {
+      vh = window.innerHeight;
+    };
 
     update();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -147,17 +149,27 @@ export default function ProjectCard({
             alt={imageAlt ?? title}
             fill
             priority={priority}
+            quality={90}
             className={styles.coverImage}
             sizes="100vw"
           />
         )}
-        <div className={styles.overlay} style={{ background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), ${accentColor}99` }} />
-        <h2 ref={coverTitleRef} className={styles.coverTitle}>{title}</h2>
+        <div
+          className={styles.overlay}
+          style={{
+            background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), ${accentColor}99`,
+          }}
+        />
+        <h2 ref={coverTitleRef} className={styles.coverTitle}>
+          {title}
+        </h2>
       </div>
 
       {/* ── Descriptif + Images (fond cream) ── */}
-      <div ref={contentRef} className={`${styles.content} ${contentVisible ? styles.contentVisible : ''}`}>
-
+      <div
+        ref={contentRef}
+        className={`${styles.content} ${contentVisible ? styles.contentVisible : ''}`}
+      >
         <div className={styles.descriptif}>
           <div className={styles.row}>
             <span className={styles.rowLabel}>Year</span>
@@ -195,31 +207,33 @@ export default function ProjectCard({
 
         {/* ── Images ── */}
         {useCaseImages.length > 0 && (
-        <div ref={imagesRef} className={`${styles.images} ${imagesVisible ? styles.imagesVisible : ''}`}>
-          {useCaseImages.map((item, i) => {
-            const src = typeof item === 'string' ? item : item.src;
-            const bg = typeof item === 'string' ? accentColor : (item.bg ?? undefined);
-            return (
-              <div
-                key={src}
-                className={styles.imageCell}
-                data-nobg={bg === undefined ? 'true' : undefined}
-                style={{ background: bg, transitionDelay: `${i * 80}ms` }}
-              >
-                <Image
-                  src={src}
-                  alt={`${title} — use case ${i + 1}`}
-                  fill
-                  priority={priority && i < 2}
-                  className={styles.useCaseImage}
-                  sizes="(min-width: 1200px) 33vw, 50vw"
-                />
-              </div>
-            );
-          })}
-        </div>
+          <div
+            ref={imagesRef}
+            className={`${styles.images} ${imagesVisible ? styles.imagesVisible : ''}`}
+          >
+            {useCaseImages.map((item, i) => {
+              const src = typeof item === 'string' ? item : item.src;
+              const bg = typeof item === 'string' ? accentColor : (item.bg ?? undefined);
+              return (
+                <div
+                  key={src}
+                  className={styles.imageCell}
+                  data-nobg={bg === undefined ? 'true' : undefined}
+                  style={{ background: bg, transitionDelay: `${i * 80}ms` }}
+                >
+                  <Image
+                    src={src}
+                    alt={`${title} — use case ${i + 1}`}
+                    fill
+                    priority={priority && i < 2}
+                    className={styles.useCaseImage}
+                    sizes="(min-width: 1200px) 33vw, 50vw"
+                  />
+                </div>
+              );
+            })}
+          </div>
         )}
-
       </div>
     </article>
   );

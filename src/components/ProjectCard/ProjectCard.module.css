@@ -10,7 +10,7 @@
 
 .cover {
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16/9;
   overflow: hidden;
   background: rgba(255, 243, 213, 0.54);
   /* Initial state — overridden by JS scroll handler */
@@ -40,7 +40,6 @@
   justify-content: center;
   font-family: var(--font-display);
   font-weight: 400;
-  text-transform: uppercase;
   font-size: 100px;
   color: var(--color-cream);
   line-height: 1;
