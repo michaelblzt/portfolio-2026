@@ -1,4 +1,3 @@
-// test deploy coolify
 // Flip this boolean to toggle the header availability status.
 // true  → "Available for work" (green dot)
 // false → "Not available"      (red dot)
