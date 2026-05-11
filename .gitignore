@@ -30,6 +30,7 @@
 # claude / agents config
 CLAUDE.md
 AGENTS.md
+learned-rules/
 
 # project management
 CHANGES.md
